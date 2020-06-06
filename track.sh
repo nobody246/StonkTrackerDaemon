@@ -25,7 +25,7 @@ do
     elif [ ${keys[$x]} == "change" ]; then
 	m=${m//"[:chg]"/${vals[$x]}};
 	s="/\\";
-	if [ ${vals[$x]} -lt 0 ]; then
+	if [ $(echo "${vals[$x]}<0" | bc) == 1 ]; then
 	    s="\\/";
 	fi;
 	m=${m//"[:sts]"/$s};
